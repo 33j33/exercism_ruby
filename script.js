@@ -61,7 +61,7 @@ function combineConceptFiles(conceptsFilePath, outputFilePath) {
                 const fileList = files.split(',');
 
                 const sectionHeader = `# ${index + 1}. ${concept.toUpperCase()}`;
-                combinedContent += `${sectionHeader}\n\n`;
+                combinedContent += `${sectionHeader}\n---\n---\n`;
 
                 indexContent += `- [${concept.toUpperCase()}](#${index + 1}-${concept.toLowerCase().replace(/\s+/g, '-')})\n`;
 
@@ -74,7 +74,7 @@ function combineConceptFiles(conceptsFilePath, outputFilePath) {
                     }
                 });
 
-                combinedContent += `---\n\n---\n\n`; // Add a Markdown divider
+                combinedContent += `---\n\n`; // Add a Markdown divider
             }
         });
 

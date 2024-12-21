@@ -24,64 +24,8 @@
 
 
 # 1. BASICS
-
-# About
-
-Ruby is a dynamic and strongly typed language. In dynamic languages the type of a variable or object is resolved at runtime, which means that its value or type can be changed up to the very last moment (when it gets parsed by the interpreter).
-And what do we mean with strongly typed? Once we know the type of a variable or object, Ruby is strict about what you can do with it, for example:
-
-```ruby
-x = '2'
-y = x + 'n'
-# =>  '2n'
-```
-
-**But**
-
-```ruby
-x = '2'
-y = x + 2
-# => TypeError (no implicit conversion of Integer into String)
-```
-
-Remember, in Ruby everything is an object. Even classes are instances of the class `Class`. For example:
-
-```ruby
-1.class
-# => Integer
-
-Integer.is_a?(Object)
-# => true
-
-Class.is_a?(Object)
-# => true
-```
-
-This means that we can also define classes like this:
-
-```ruby
-Car = Class.new do
-  def run
-    'running'
-  end
-end
-
-Car.new.run
-# => 'running'
-```
-
-Finally, bear in mind that the `Integer` object holds values that may be defined as one or more (consecutive) digits and its methods support many of the [mathematical operators][integers-docs].
-
-[integers-docs]: https://ruby-doc.org/core-2.7.0/Integer.html
-
-~~~~exercism/note
-The communication in documentation often will reference instance methods using syntax like `Class#method_name` while class or module level methods are referenced as `Class::method_name`.
-The `::` is called the _Scope Resolution Operator_, the constant or method at the class or module level being referenced.
-You will encounter this in the Ruby documentation, and in mailing lists and other support areas.
-You will find that we reference class and module methods in our writing as `ClassName.method_name` or `ModuleName.method_name`, instead.
-~~~~
-
-
+---
+---
 # Introduction
 
 Ruby is a dynamic [object-oriented language][object-oriented-programming]. Everything in Ruby is an [object][object].
@@ -139,6 +83,63 @@ calc.multiply(num1: 2, num2: 5)
 [object-oriented-programming]: https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/oothinking.html
 [object]: https://github.com/exercism/v3/blob/main/reference/concepts/objects.md
 [snake-case]: https://en.wikipedia.org/wiki/Snake_case
+
+
+# About
+
+Ruby is a dynamic and strongly typed language. In dynamic languages the type of a variable or object is resolved at runtime, which means that its value or type can be changed up to the very last moment (when it gets parsed by the interpreter).
+And what do we mean with strongly typed? Once we know the type of a variable or object, Ruby is strict about what you can do with it, for example:
+
+```ruby
+x = '2'
+y = x + 'n'
+# =>  '2n'
+```
+
+**But**
+
+```ruby
+x = '2'
+y = x + 2
+# => TypeError (no implicit conversion of Integer into String)
+```
+
+Remember, in Ruby everything is an object. Even classes are instances of the class `Class`. For example:
+
+```ruby
+1.class
+# => Integer
+
+Integer.is_a?(Object)
+# => true
+
+Class.is_a?(Object)
+# => true
+```
+
+This means that we can also define classes like this:
+
+```ruby
+Car = Class.new do
+  def run
+    'running'
+  end
+end
+
+Car.new.run
+# => 'running'
+```
+
+Finally, bear in mind that the `Integer` object holds values that may be defined as one or more (consecutive) digits and its methods support many of the [mathematical operators][integers-docs].
+
+[integers-docs]: https://ruby-doc.org/core-2.7.0/Integer.html
+
+~~~~exercism/note
+The communication in documentation often will reference instance methods using syntax like `Class#method_name` while class or module level methods are referenced as `Class::method_name`.
+The `::` is called the _Scope Resolution Operator_, the constant or method at the class or module level being referenced.
+You will encounter this in the Ruby documentation, and in mailing lists and other support areas.
+You will find that we reference class and module methods in our writing as `ClassName.method_name` or `ModuleName.method_name`, instead.
+~~~~
 
 
 # Introduction
@@ -228,9 +229,20 @@ calc.multiply(num1: 2, num2: 5)
 
 ---
 
----
-
 # 2. NUMBERS
+---
+---
+# Introduction
+
+Two common types of numbers in Ruby are:
+
+- Integers: numbers with no digits behind the decimal separator (whole numbers). Examples are `-6`, `0`, `1`, `25`, `976` and `500_000`.
+- Floating-point numbers: numbers with zero or more digits behind the decimal separator. Examples are `-2.4`, `0.1`, `3.14`, `16.984025` and `1024.0`, (they also can use the `_` as a separator for readability as shown above such as `1_024.0`).
+
+They are implemented through the `Integer` and `Float` classes.
+
+The `Float` and `Integer` classes have methods that will coerce values from one to the other. `Integer` numbers are precise to a whole unit, while `Float` has precision that is fractional to a whole number.
+
 
 # About
 
@@ -317,23 +329,16 @@ The same problem can sometimes be solved using different types of conditional st
 [float-ruby]: https://ruby-doc.org/core-2.7.1/Float.html
 
 
-# Introduction
-
-Two common types of numbers in Ruby are:
-
-- Integers: numbers with no digits behind the decimal separator (whole numbers). Examples are `-6`, `0`, `1`, `25`, `976` and `500_000`.
-- Floating-point numbers: numbers with zero or more digits behind the decimal separator. Examples are `-2.4`, `0.1`, `3.14`, `16.984025` and `1024.0`, (they also can use the `_` as a separator for readability as shown above such as `1_024.0`).
-
-They are implemented through the `Integer` and `Float` classes.
-
-The `Float` and `Integer` classes have methods that will coerce values from one to the other. `Integer` numbers are precise to a whole unit, while `Float` has precision that is fractional to a whole number.
-
-
----
-
 ---
 
 # 3. FLOATING-POINT-NUMBERS
+---
+---
+# Loops
+
+A floating-point number is a number with zero or more digits behind the decimal separator. Examples are `4.0`, `0.1`, `3.14`, `-6.4` `16.984025` and `1024.0`.
+In Ruby, floating-point numbers are implemented through the [Float](https://ruby-doc.org/core-2.7.0/Float.html) class.
+
 
 # About
 
@@ -392,17 +397,15 @@ As you have probably noticed, Ruby has no increment operator (`i++`) like some o
 [evanw.github.io-float-toy]: https://evanw.github.io/float-toy/
 
 
-# Loops
-
-A floating-point number is a number with zero or more digits behind the decimal separator. Examples are `4.0`, `0.1`, `3.14`, `-6.4` `16.984025` and `1024.0`.
-In Ruby, floating-point numbers are implemented through the [Float](https://ruby-doc.org/core-2.7.0/Float.html) class.
-
-
----
-
 ---
 
 # 4. STRINGS
+---
+---
+# Introduction
+
+A `String` in Ruby is an object that holds and manipulates an arbitrary sequence of bytes, typically representing characters. Strings are manipulated by calling the string's methods.
+
 
 # About
 
@@ -415,11 +418,6 @@ You can also create strings using the [heredoc syntax][ruby-heredoc] or using th
 [ruby-for-beginners.rubymonstas.org-interpolation]: http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html
 [ruby-doc.org-string]: https://ruby-doc.org/core-2.7.0/String.html
 [ruby-heredoc]: https://www.rubyguides.com/2018/11/ruby-heredoc/
-
-
-# Introduction
-
-A `String` in Ruby is an object that holds and manipulates an arbitrary sequence of bytes, typically representing characters. Strings are manipulated by calling the string's methods.
 
 
 # Introduction
@@ -518,49 +516,9 @@ puts my_string         #=> "Hello"
 
 ---
 
----
-
 # 5. BOOLEANS
-
-# About
-
-## True, False
-
-- `true` and `false` are used to represent boolean logical states.
-  - They are singleton instances of the [`TrueClass`][true-class] and [`FalseClass`][false-class] objects.
-  - they may occur as literals in code, or as the result of logical (`&&`, `||`, `!`) or [comparison][comparable-class] (`<`, `>`, `==`) methods.
-
-## _Truthy_ and _falsey_
-
-- When not using strict Boolean values, _truthy_ and _falsey_ evaluation rules are applied:
-
-  - Only `false` and `nil` evaluates as _falsey_.
-  - Everything else evaluates as _truthy_.
-
-  ```ruby
-  # A simplified definition
-  def falsey
-    nil || false
-  end
-
-  def truthy
-    not falsey
-  end
-  ```
-
-[c-family]: https://en.wikipedia.org/wiki/List_of_C-family_programming_languages
-[control-expressions]: https://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Control_Structures
-[true-class]: https://docs.ruby-lang.org/en/master/TrueClass.html
-[false-class]: https://docs.ruby-lang.org/en/master/FalseClass.html
-[nil-class]: https://docs.ruby-lang.org/en/master/NilClass.html
-[comparable-class]: https://docs.ruby-lang.org/en/master/Comparable.html
-[constants]: https://www.rubyguides.com/2017/07/ruby-constants/
-[integer-class]: https://docs.ruby-lang.org/en/master/Integer.html
-[kernel-class]: https://docs.ruby-lang.org/en/master/Kernel.html
-[methods]: https://launchschool.com/books/ruby/read/methods
-[returns]: https://www.freecodecamp.org/news/idiomatic-ruby-writing-beautiful-code-6845c830c664/
-
-
+---
+---
 # Introduction
 
 ## True and False
@@ -625,6 +583,45 @@ Ruby provides `unless` to make code read well. E.g.) Rather than `eat_desert if 
 [nil-dictionary]: https://www.merriam-webster.com/dictionary/nil
 
 
+# About
+
+## True, False
+
+- `true` and `false` are used to represent boolean logical states.
+  - They are singleton instances of the [`TrueClass`][true-class] and [`FalseClass`][false-class] objects.
+  - they may occur as literals in code, or as the result of logical (`&&`, `||`, `!`) or [comparison][comparable-class] (`<`, `>`, `==`) methods.
+
+## _Truthy_ and _falsey_
+
+- When not using strict Boolean values, _truthy_ and _falsey_ evaluation rules are applied:
+
+  - Only `false` and `nil` evaluates as _falsey_.
+  - Everything else evaluates as _truthy_.
+
+  ```ruby
+  # A simplified definition
+  def falsey
+    nil || false
+  end
+
+  def truthy
+    not falsey
+  end
+  ```
+
+[c-family]: https://en.wikipedia.org/wiki/List_of_C-family_programming_languages
+[control-expressions]: https://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Control_Structures
+[true-class]: https://docs.ruby-lang.org/en/master/TrueClass.html
+[false-class]: https://docs.ruby-lang.org/en/master/FalseClass.html
+[nil-class]: https://docs.ruby-lang.org/en/master/NilClass.html
+[comparable-class]: https://docs.ruby-lang.org/en/master/Comparable.html
+[constants]: https://www.rubyguides.com/2017/07/ruby-constants/
+[integer-class]: https://docs.ruby-lang.org/en/master/Integer.html
+[kernel-class]: https://docs.ruby-lang.org/en/master/Kernel.html
+[methods]: https://launchschool.com/books/ruby/read/methods
+[returns]: https://www.freecodecamp.org/news/idiomatic-ruby-writing-beautiful-code-6845c830c664/
+
+
 # Introduction
 
 ## True and False
@@ -669,9 +666,53 @@ true != false # true
 
 ---
 
----
-
 # 6. INSTANCE-VARIABLES
+---
+---
+# Introduction
+
+Objects can hold their own state by setting _instance variables_, which are created by prefixing `@` to a variable name.
+
+```ruby
+@name = 2
+```
+
+Objects usually set their initial state in an `initialize` method, which is automatically called when calling `new` on a class.
+
+```ruby
+class Airplane
+  def initialize
+    @wings = 2
+  end
+end
+```
+
+The `initialize` method may also take arguments, so that each instance can start with a custom state:
+
+```ruby
+class Suitcase
+  def initialize(locked)
+    @locked = locked
+  end
+end
+```
+
+Consider _instance_ variables to be private from external read and writes. _Instance_ methods should be used for getting and setting instance variables:
+
+```ruby
+class Suitcase
+  #...
+
+  def locked? # Query methods should be named with a trailing `?`
+    @locked
+  end
+
+  def unlock! # Methods which mutate state should have trailing `!`
+    @locked = false
+  end
+end
+```
+
 
 # About
 
@@ -738,51 +779,6 @@ end
 [rg-instance-variables]: https://www.rubyguides.com/2019/07/ruby-instance-variables/
 [rug-instance-variables]: https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/instancevars.html
 [gfg-getter-setters]: https://www.geeksforgeeks.org/ruby-getters-and-setters-method/
-
-
-# Introduction
-
-Objects can hold their own state by setting _instance variables_, which are created by prefixing `@` to a variable name.
-
-```ruby
-@name = 2
-```
-
-Objects usually set their initial state in an `initialize` method, which is automatically called when calling `new` on a class.
-
-```ruby
-class Airplane
-  def initialize
-    @wings = 2
-  end
-end
-```
-
-The `initialize` method may also take arguments, so that each instance can start with a custom state:
-
-```ruby
-class Suitcase
-  def initialize(locked)
-    @locked = locked
-  end
-end
-```
-
-Consider _instance_ variables to be private from external read and writes. _Instance_ methods should be used for getting and setting instance variables:
-
-```ruby
-class Suitcase
-  #...
-
-  def locked? # Query methods should be named with a trailing `?`
-    @locked
-  end
-
-  def unlock! # Methods which mutate state should have trailing `!`
-    @locked = false
-  end
-end
-```
 
 
 # Introduction
@@ -890,24 +886,9 @@ print @favourite_color # prints "blue"
 
 ---
 
----
-
 # 7. NIL
-
-# About
-
-[Nil][nil-dictionary] is an English word meaning "nothing" or "zero". In Ruby, `nil` is an object which is used to express the _absence_ of a value. In other programming languages, `null` or `none` values may play a similar role.
-
-```ruby
-# I do not have a favorite color
-favorite_color = nil
-```
-
-Ruby gives any instance variable the default value of `nil` when it is first encountered, until it is set otherwise.
-
-[nil-dictionary]: https://www.merriam-webster.com/dictionary/nil
-
-
+---
+---
 # Introduction
 
 
@@ -923,11 +904,137 @@ Ruby gives any instance variable the default value of `nil` when it is first enc
 [nil-dictionary]: https://www.merriam-webster.com/dictionary/nil
 
 
----
+# About
+
+[Nil][nil-dictionary] is an English word meaning "nothing" or "zero". In Ruby, `nil` is an object which is used to express the _absence_ of a value. In other programming languages, `null` or `none` values may play a similar role.
+
+```ruby
+# I do not have a favorite color
+favorite_color = nil
+```
+
+Ruby gives any instance variable the default value of `nil` when it is first encountered, until it is set otherwise.
+
+[nil-dictionary]: https://www.merriam-webster.com/dictionary/nil
+
 
 ---
 
 # 8. CONDITIONALS
+---
+---
+# Conditionals
+
+Ruby has what is known as flow control expressions, these are used to control the way the program will run and they take a truthy or falsey value.
+There are operators that can be used to create truthy or falsey values, these are known as [comparison operators][comparison-operators].
+
+There are two main control expressions that are used to control which code will run and which will not.
+Also known as which given branch will run.
+
+Those two are: `if` and the `unless` expression.
+
+## Comparison operators
+
+[Comparison operators][comparison-operators] are used to compare values and return a `true` or `false` value.
+The following operators require two values to be compared of the same type.
+If the values are not of the same type then the compiler will throw an error.
+Here is a list of the operators and an example of when they give a `true` value:
+
+| Method | Description           | Example |
+| ------ | --------------------- | ------- |
+| <      | less than             | 5 < 4   |
+| <=     | less than or equal    | 4 <= 4  |
+| >      | greater than          | 3 > 1   |
+| >=     | greater than or equal | 2 >= 2  |
+
+The equal and not equal operators can be used to compare any type of value contrary to the operators already mentioned.
+The `==` operator is used to check if two values are equal, and that includes checking the type of the value.
+The `!=` works the same way but it will return `true` if the values are not equal and `false` if they are equal.
+Here is a list of the equal and not equal operators and an example of when they give a `true` value:
+
+| Method | Description  | Example |
+| ------ | ------------ | ------- |
+| ==     | equal        | 4 == 4  |
+| !=     | not equal    | 5 != 4  |
+
+## If statement
+
+The [`if`][if] statement is used to check if a given condition is "truthy" or "falsey".
+If the condition is truthy then the code inside the if statement will run.
+An `if` statement ends with the `end` keyword.
+
+```ruby
+value = 1
+if value == 1
+  "1 is equal to 1"
+end
+# => "1 is equal to 1"
+
+if value > 2
+  "1 is greater than 2"
+end
+# => nil
+```
+
+## Unless statement
+
+The `unless`unless statement works very similarly to the `if` statement but it will run the code inside the `unless` statement if the condition is falsey.
+
+```ruby
+value = 1
+unless value == 1
+  "1 is not equal to 1"
+end
+# => nil
+
+unless value > 2
+  "1 is not greater than 2"
+end
+# => "1 is not greater than 2"
+```
+
+## Else statement
+
+The `else` statement can be used in conjunction with the `if` and `unless` statements.
+The `else` statement will be executed if the `if` branch or the `unless` branch is not executed.
+
+```ruby
+value = 1
+if value == 1
+  "1 is equal to 1"
+else
+  "1 is not equal to 1"
+end
+# => "1 is equal to 1"
+
+unless value < 2
+  "1 is not greater than 2"
+end
+# => "1 is greater than 2"
+```
+
+## "Cascading-if" statements
+
+The `elsif` statement can be used in conjunction with the if statement.
+The `elsif` statement will be executed if the if branch is not executed and the condition of the elsif statement is truthy.
+Elsif statements can be chained together and the first truthy condition will be executed.
+There can also be an else statement at the end of the if statement which will run if non of the earlier statement has been true.
+
+```ruby
+value = 1
+if value != 1
+  "1 is not equal to 1"
+elsif value > 2
+  "1 is greater than 2"
+else
+  "1 is not equal to 1 and 1 is not greater than 2"
+end
+# => "1 is not equal to 1 and 1 is not greater than 2"
+```
+
+[comparison-operators]: https://www.w3resource.com/ruby/ruby-comparison-operators.php
+[if]: https://www.rubyguides.com/ruby-tutorial/ruby-if-else/
+
 
 # Conditionals
 
@@ -1069,119 +1176,6 @@ value = 1
 [if]: https://www.rubyguides.com/ruby-tutorial/ruby-if-else/
 
 
-# Conditionals
-
-Ruby has what is known as flow control expressions, these are used to control the way the program will run and they take a truthy or falsey value.
-There are operators that can be used to create truthy or falsey values, these are known as [comparison operators][comparison-operators].
-
-There are two main control expressions that are used to control which code will run and which will not.
-Also known as which given branch will run.
-
-Those two are: `if` and the `unless` expression.
-
-## Comparison operators
-
-[Comparison operators][comparison-operators] are used to compare values and return a `true` or `false` value.
-The following operators require two values to be compared of the same type.
-If the values are not of the same type then the compiler will throw an error.
-Here is a list of the operators and an example of when they give a `true` value:
-
-| Method | Description           | Example |
-| ------ | --------------------- | ------- |
-| <      | less than             | 5 < 4   |
-| <=     | less than or equal    | 4 <= 4  |
-| >      | greater than          | 3 > 1   |
-| >=     | greater than or equal | 2 >= 2  |
-
-The equal and not equal operators can be used to compare any type of value contrary to the operators already mentioned.
-The `==` operator is used to check if two values are equal, and that includes checking the type of the value.
-The `!=` works the same way but it will return `true` if the values are not equal and `false` if they are equal.
-Here is a list of the equal and not equal operators and an example of when they give a `true` value:
-
-| Method | Description  | Example |
-| ------ | ------------ | ------- |
-| ==     | equal        | 4 == 4  |
-| !=     | not equal    | 5 != 4  |
-
-## If statement
-
-The [`if`][if] statement is used to check if a given condition is "truthy" or "falsey".
-If the condition is truthy then the code inside the if statement will run.
-An `if` statement ends with the `end` keyword.
-
-```ruby
-value = 1
-if value == 1
-  "1 is equal to 1"
-end
-# => "1 is equal to 1"
-
-if value > 2
-  "1 is greater than 2"
-end
-# => nil
-```
-
-## Unless statement
-
-The `unless`unless statement works very similarly to the `if` statement but it will run the code inside the `unless` statement if the condition is falsey.
-
-```ruby
-value = 1
-unless value == 1
-  "1 is not equal to 1"
-end
-# => nil
-
-unless value > 2
-  "1 is not greater than 2"
-end
-# => "1 is not greater than 2"
-```
-
-## Else statement
-
-The `else` statement can be used in conjunction with the `if` and `unless` statements.
-The `else` statement will be executed if the `if` branch or the `unless` branch is not executed.
-
-```ruby
-value = 1
-if value == 1
-  "1 is equal to 1"
-else
-  "1 is not equal to 1"
-end
-# => "1 is equal to 1"
-
-unless value < 2
-  "1 is not greater than 2"
-end
-# => "1 is greater than 2"
-```
-
-## "Cascading-if" statements
-
-The `elsif` statement can be used in conjunction with the if statement.
-The `elsif` statement will be executed if the if branch is not executed and the condition of the elsif statement is truthy.
-Elsif statements can be chained together and the first truthy condition will be executed.
-There can also be an else statement at the end of the if statement which will run if non of the earlier statement has been true.
-
-```ruby
-value = 1
-if value != 1
-  "1 is not equal to 1"
-elsif value > 2
-  "1 is greater than 2"
-else
-  "1 is not equal to 1 and 1 is not greater than 2"
-end
-# => "1 is not equal to 1 and 1 is not greater than 2"
-```
-
-[comparison-operators]: https://www.w3resource.com/ruby/ruby-comparison-operators.php
-[if]: https://www.rubyguides.com/ruby-tutorial/ruby-if-else/
-
-
 # Introduction
 
 ## Numbers
@@ -1310,409 +1304,407 @@ end
 
 ---
 
----
-
 # 9. CASE
-
-# Case
-
-[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
-Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
-
-A case is defined by the keyword `case` followed by an optional expression.
-Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
-The `when` keyword should not be indented from the `case` keyword.
-After the `when` keyword is the code that should be executed if the case expression matches the when expression.
-Case allows for an optional `else` statement which is executed if no other case matches.
-
-The case expression is evaluated and then compared to each `when` expression.
-The expression is compared using the case equality operator (`===`).
-
-```ruby
-value = 1
-case value
-when 1
-  "One"
-when 2
-  "Two"
-else
-  "Other"
-end
-
-# This is the same as:
-value = 1
-if 1 === value
-  "One"
-elsif 2 === value
-  "Two"
-else
-  "Other"
-end
-```
-
-## Case equality operator (`===`)
-
-The case equality operator (`===`) is a bit different from the equality operator (`==`).
-The operator checks if the right side is a member of the set described by the left side.
-This means that it does matter where each operand is placed.
-How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
-
-```ruby
-(1..3) == 1  # => false
-(1..3) === 1 # => true
-
-String == "foo"  # => false
-String === "foo" # => true
-```
-
-## Case with multiple expressions
-
-Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
-It will execute the code if any of the expressions match.
-This can be useful when you want a single case to have multiple possible values.
-
-```ruby
-case var
-when 1, 2
-  "One or two"
-else
-  "Other"
-end
-```
-
-## Cases with ranges
-
-Cases can also check if a value is in a range.
-This is done by having a range as the when expression.
-
-```ruby
-case var
-when 1..3
-  puts "One to three"
-else
-  puts "Other"
-end
-```
-
-## Cases with no case expression
-
-When there is no need for a case expression, it is possible to omit it.
-Doing this will make it so that each case expression is evaluated for truthiness.
-And makes them behave like if-else-if statements.
-
-```ruby
-case
-when 1 == 1
-  "One is equal to one"
-when 1 > 2
-  "One is greater than two"
-else
-  "Other"
-end
-```
-
-## Single line when
-
-Ruby allows for single line case statements.
-This can be used when you have a simple single line statement.
-The single line when statement is written as `when <expression> then <statement>`.
-And when used in the else statement it is written as `else <statement>`.
-
-```ruby
-case var
-when 1 then "One"
-when 2 then "Two"
-else "Other"
-end
-```
-
-## Case with types
-
-Case allows for the matching with types.
-This is useful when wanting different behavior depending on the type of a variable.
-
-```ruby
-case var
-when Integer
-  "Integer"
-when String
-  "String"
-else
-  "Other"
-end
-```
-
-[case]: https://www.rubyguides.com/2015/10/ruby-case/
-
-
-# Case
-
-[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
-Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
-
-A case is defined by the keyword `case` followed by an optional expression.
-Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
-The `when` keyword should not be indented from the `case` keyword.
-After the `when` keyword is the code that should be executed if the case expression matches the when expression.
-Case allows for an optional `else` statement which is executed if no other case matches.
-
-The case expression is evaluated and then compared to each `when` expression.
-The expression is compared using the case equality operator (`===`).
-
-```ruby
-value = 1
-case value
-when 1
-  "One"
-when 2
-  "Two"
-else
-  "Other"
-end
-
-# This is the same as:
-value = 1
-if 1 === value
-  "One"
-elsif 2 === value
-  "Two"
-else
-  "Other"
-end
-```
-
-## Case equality operator (`===`)
-
-The case equality operator (`===`) is a bit different from the equality operator (`==`).
-The operator checks if the right side is a member of the set described by the left side.
-This means that it does matter where each operand is placed.
-How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
-
-```ruby
-(1..3) == 1  # => false
-(1..3) === 1 # => true
-
-String == "foo"  # => false
-String === "foo" # => true
-```
-
-## Case with multiple expressions
-
-Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
-It will execute the code if any of the expressions match.
-This can be useful when you want a single case to have multiple possible values.
-
-```ruby
-case var
-when 1, 2
-  "One or two"
-else
-  "Other"
-end
-```
-
-## Cases with ranges
-
-Cases can also check if a value is in a range.
-This is done by having a range as the when expression.
-
-```ruby
-case var
-when 1..3
-  puts "One to three"
-else
-  puts "Other"
-end
-```
-
-## Cases with no case expression
-
-When there is no need for a case expression, it is possible to omit it.
-Doing this will make it so that each case expression is evaluated for truthiness.
-And makes them behave like if-else-if statements.
-
-```ruby
-case
-when 1 == 1
-  "One is equal to one"
-when 1 > 2
-  "One is greater than two"
-else
-  "Other"
-end
-```
-
-## Single line when
-
-Ruby allows for single line case statements.
-This can be used when you have a simple single line statement.
-The single line when statement is written as `when <expression> then <statement>`.
-And when used in the else statement it is written as `else <statement>`.
-
-```ruby
-case var
-when 1 then "One"
-when 2 then "Two"
-else "Other"
-end
-```
-
-## Case with types
-
-Case allows for the matching with types.
-This is useful when wanting different behavior depending on the type of a variable.
-
-```ruby
-case var
-when Integer
-  "Integer"
-when String
-  "String"
-else
-  "Other"
-end
-```
-
-[case]: https://www.rubyguides.com/2015/10/ruby-case/
-
-
-# Case
-
-[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
-Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
-
-A case is defined by the keyword `case` followed by an optional expression.
-Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
-The `when` keyword should not be indented from the `case` keyword.
-After the `when` keyword is the code that should be executed if the case expression matches the when expression.
-Case allows for an optional `else` statement which is executed if no other case matches.
-
-The case expression is evaluated and then compared to each `when` expression.
-The expression is compared using the case equality operator (`===`).
-
-```ruby
-value = 1
-case value
-when 1
-  "One"
-when 2
-  "Two"
-else
-  "Other"
-end
-
-# This is the same as:
-value = 1
-if 1 === value
-  "One"
-elsif 2 === value
-  "Two"
-else
-  "Other"
-end
-```
-
-## Case equality operator (`===`)
-
-The case equality operator (`===`) is a bit different from the equality operator (`==`).
-The operator checks if the right side is a member of the set described by the left side.
-This means that it does matter where each operand is placed.
-How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
-
-```ruby
-(1..3) == 1  # => false
-(1..3) === 1 # => true
-
-String == "foo"  # => false
-String === "foo" # => true
-```
-
-## Case with multiple expressions
-
-Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
-It will execute the code if any of the expressions match.
-This can be useful when you want a single case to have multiple possible values.
-
-```ruby
-case var
-when 1, 2
-  "One or two"
-else
-  "Other"
-end
-```
-
-## Cases with ranges
-
-Cases can also check if a value is in a range.
-This is done by having a range as the when expression.
-
-```ruby
-case var
-when 1..3
-  puts "One to three"
-else
-  puts "Other"
-end
-```
-
-## Cases with no case expression
-
-When there is no need for a case expression, it is possible to omit it.
-Doing this will make it so that each case expression is evaluated for truthiness.
-And makes them behave like if-else-if statements.
-
-```ruby
-case
-when 1 == 1
-  "One is equal to one"
-when 1 > 2
-  "One is greater than two"
-else
-  "Other"
-end
-```
-
-## Single line when
-
-Ruby allows for single line case statements.
-This can be used when you have a simple single line statement.
-The single line when statement is written as `when <expression> then <statement>`.
-And when used in the else statement it is written as `else <statement>`.
-
-```ruby
-case var
-when 1 then "One"
-when 2 then "Two"
-else "Other"
-end
-```
-
-## Case with types
-
-Case allows for the matching with types.
-This is useful when wanting different behavior depending on the type of a variable.
-
-```ruby
-case var
-when Integer
-  "Integer"
-when String
-  "String"
-else
-  "Other"
-end
-```
-
-[case]: https://www.rubyguides.com/2015/10/ruby-case/
-
-
 ---
+---
+# Case
+
+[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
+Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
+
+A case is defined by the keyword `case` followed by an optional expression.
+Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
+The `when` keyword should not be indented from the `case` keyword.
+After the `when` keyword is the code that should be executed if the case expression matches the when expression.
+Case allows for an optional `else` statement which is executed if no other case matches.
+
+The case expression is evaluated and then compared to each `when` expression.
+The expression is compared using the case equality operator (`===`).
+
+```ruby
+value = 1
+case value
+when 1
+  "One"
+when 2
+  "Two"
+else
+  "Other"
+end
+
+# This is the same as:
+value = 1
+if 1 === value
+  "One"
+elsif 2 === value
+  "Two"
+else
+  "Other"
+end
+```
+
+## Case equality operator (`===`)
+
+The case equality operator (`===`) is a bit different from the equality operator (`==`).
+The operator checks if the right side is a member of the set described by the left side.
+This means that it does matter where each operand is placed.
+How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
+
+```ruby
+(1..3) == 1  # => false
+(1..3) === 1 # => true
+
+String == "foo"  # => false
+String === "foo" # => true
+```
+
+## Case with multiple expressions
+
+Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
+It will execute the code if any of the expressions match.
+This can be useful when you want a single case to have multiple possible values.
+
+```ruby
+case var
+when 1, 2
+  "One or two"
+else
+  "Other"
+end
+```
+
+## Cases with ranges
+
+Cases can also check if a value is in a range.
+This is done by having a range as the when expression.
+
+```ruby
+case var
+when 1..3
+  puts "One to three"
+else
+  puts "Other"
+end
+```
+
+## Cases with no case expression
+
+When there is no need for a case expression, it is possible to omit it.
+Doing this will make it so that each case expression is evaluated for truthiness.
+And makes them behave like if-else-if statements.
+
+```ruby
+case
+when 1 == 1
+  "One is equal to one"
+when 1 > 2
+  "One is greater than two"
+else
+  "Other"
+end
+```
+
+## Single line when
+
+Ruby allows for single line case statements.
+This can be used when you have a simple single line statement.
+The single line when statement is written as `when <expression> then <statement>`.
+And when used in the else statement it is written as `else <statement>`.
+
+```ruby
+case var
+when 1 then "One"
+when 2 then "Two"
+else "Other"
+end
+```
+
+## Case with types
+
+Case allows for the matching with types.
+This is useful when wanting different behavior depending on the type of a variable.
+
+```ruby
+case var
+when Integer
+  "Integer"
+when String
+  "String"
+else
+  "Other"
+end
+```
+
+[case]: https://www.rubyguides.com/2015/10/ruby-case/
+
+
+# Case
+
+[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
+Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
+
+A case is defined by the keyword `case` followed by an optional expression.
+Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
+The `when` keyword should not be indented from the `case` keyword.
+After the `when` keyword is the code that should be executed if the case expression matches the when expression.
+Case allows for an optional `else` statement which is executed if no other case matches.
+
+The case expression is evaluated and then compared to each `when` expression.
+The expression is compared using the case equality operator (`===`).
+
+```ruby
+value = 1
+case value
+when 1
+  "One"
+when 2
+  "Two"
+else
+  "Other"
+end
+
+# This is the same as:
+value = 1
+if 1 === value
+  "One"
+elsif 2 === value
+  "Two"
+else
+  "Other"
+end
+```
+
+## Case equality operator (`===`)
+
+The case equality operator (`===`) is a bit different from the equality operator (`==`).
+The operator checks if the right side is a member of the set described by the left side.
+This means that it does matter where each operand is placed.
+How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
+
+```ruby
+(1..3) == 1  # => false
+(1..3) === 1 # => true
+
+String == "foo"  # => false
+String === "foo" # => true
+```
+
+## Case with multiple expressions
+
+Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
+It will execute the code if any of the expressions match.
+This can be useful when you want a single case to have multiple possible values.
+
+```ruby
+case var
+when 1, 2
+  "One or two"
+else
+  "Other"
+end
+```
+
+## Cases with ranges
+
+Cases can also check if a value is in a range.
+This is done by having a range as the when expression.
+
+```ruby
+case var
+when 1..3
+  puts "One to three"
+else
+  puts "Other"
+end
+```
+
+## Cases with no case expression
+
+When there is no need for a case expression, it is possible to omit it.
+Doing this will make it so that each case expression is evaluated for truthiness.
+And makes them behave like if-else-if statements.
+
+```ruby
+case
+when 1 == 1
+  "One is equal to one"
+when 1 > 2
+  "One is greater than two"
+else
+  "Other"
+end
+```
+
+## Single line when
+
+Ruby allows for single line case statements.
+This can be used when you have a simple single line statement.
+The single line when statement is written as `when <expression> then <statement>`.
+And when used in the else statement it is written as `else <statement>`.
+
+```ruby
+case var
+when 1 then "One"
+when 2 then "Two"
+else "Other"
+end
+```
+
+## Case with types
+
+Case allows for the matching with types.
+This is useful when wanting different behavior depending on the type of a variable.
+
+```ruby
+case var
+when Integer
+  "Integer"
+when String
+  "String"
+else
+  "Other"
+end
+```
+
+[case]: https://www.rubyguides.com/2015/10/ruby-case/
+
+
+# Case
+
+[Case][case] (often referred to as switch in other languages) is a form of control expression like if-else.
+Case allows for chaining of multiple if-else-if statements and can be more readable while still providing flow control.
+
+A case is defined by the keyword `case` followed by an optional expression.
+Then for each case, the keyword `when` is used followed by an expression which is compared to the case expression.
+The `when` keyword should not be indented from the `case` keyword.
+After the `when` keyword is the code that should be executed if the case expression matches the when expression.
+Case allows for an optional `else` statement which is executed if no other case matches.
+
+The case expression is evaluated and then compared to each `when` expression.
+The expression is compared using the case equality operator (`===`).
+
+```ruby
+value = 1
+case value
+when 1
+  "One"
+when 2
+  "Two"
+else
+  "Other"
+end
+
+# This is the same as:
+value = 1
+if 1 === value
+  "One"
+elsif 2 === value
+  "Two"
+else
+  "Other"
+end
+```
+
+## Case equality operator (`===`)
+
+The case equality operator (`===`) is a bit different from the equality operator (`==`).
+The operator checks if the right side is a member of the set described by the left side.
+This means that it does matter where each operand is placed.
+How this works depends on the type of the left side, for example a `Range` would check if the right side is in the range or a `Object` would check if the right side is an instance of the `Object`.
+
+```ruby
+(1..3) == 1  # => false
+(1..3) === 1 # => true
+
+String == "foo"  # => false
+String === "foo" # => true
+```
+
+## Case with multiple expressions
+
+Cases allow for matching multiple expressions in a single case with each possible value separated by a comma.
+It will execute the code if any of the expressions match.
+This can be useful when you want a single case to have multiple possible values.
+
+```ruby
+case var
+when 1, 2
+  "One or two"
+else
+  "Other"
+end
+```
+
+## Cases with ranges
+
+Cases can also check if a value is in a range.
+This is done by having a range as the when expression.
+
+```ruby
+case var
+when 1..3
+  puts "One to three"
+else
+  puts "Other"
+end
+```
+
+## Cases with no case expression
+
+When there is no need for a case expression, it is possible to omit it.
+Doing this will make it so that each case expression is evaluated for truthiness.
+And makes them behave like if-else-if statements.
+
+```ruby
+case
+when 1 == 1
+  "One is equal to one"
+when 1 > 2
+  "One is greater than two"
+else
+  "Other"
+end
+```
+
+## Single line when
+
+Ruby allows for single line case statements.
+This can be used when you have a simple single line statement.
+The single line when statement is written as `when <expression> then <statement>`.
+And when used in the else statement it is written as `else <statement>`.
+
+```ruby
+case var
+when 1 then "One"
+when 2 then "Two"
+else "Other"
+end
+```
+
+## Case with types
+
+Case allows for the matching with types.
+This is useful when wanting different behavior depending on the type of a variable.
+
+```ruby
+case var
+when Integer
+  "Integer"
+when String
+  "String"
+else
+  "Other"
+end
+```
+
+[case]: https://www.rubyguides.com/2015/10/ruby-case/
+
 
 ---
 
 # 10. TERNARY-OPERATOR
-
+---
+---
 # The ternary operator
 
 A ternary conditional is a shorter way of writing simple `if/else` statements. 
@@ -1813,9 +1805,21 @@ traffic_light == 'green' ? cross_the_road : wait
 
 ---
 
----
-
 # 11. LOOPS
+---
+---
+# Introduction
+
+There are several ways to write loops in Ruby, one of them is the `while` loop:
+
+```ruby
+counter = 0
+
+while counter < 5
+  counter += 1
+end
+```
+
 
 # About
 
@@ -1864,83 +1868,11 @@ As you have probably noticed, Ruby has no increment operator (`i++`) like some o
 [evanw.github.io-float-toy]: https://evanw.github.io/float-toy/
 
 
-# Introduction
-
-There are several ways to write loops in Ruby, one of them is the `while` loop:
-
-```ruby
-counter = 0
-
-while counter < 5
-  counter += 1
-end
-```
-
-
----
-
 ---
 
 # 12. ARRAYS
-
-# About
-
-Data structures that can hold zero or more elements are known as _collections_. An **array** in Ruby is a collection that maintains the ordering in which its objects are added. Arrays can hold any object. Objects can be added to an array or retrieved from it using an index. Ruby array indexing is zero-based, meaning that the first element's index is always zero:
-
-```ruby
-# Declare an array containing two values
-two_ints = [1,2]
-
-# Assign first and second element by index
-two_ints[0] = 7
-two_ints[1] = 8
-
-# Retrieve the second element by index
-two_ints[1] # => 8
-
-# Check the length of the array
-two_ints.size # => 2
-```
-
-In Ruby there are multiple ways of creating an Array:
-
-- Using the literal constructor `[]` _(most common)_
-- Explicitly calling `Array.new`
-- Calling the Kernel `Array()` method
-
-The `Array.new` method supports two optional arguments: the initial size of the array and a default object.
-
-When a size and default are provided, the array is populated with `size` copies of default object.
-
-```ruby
-a = Array.new(2, Hash.new)
-# => [{}, {}]
-```
-
-Since all the Array elements store the same hash, changes to one of them will affect them all.
-
-```ruby
-a[0]['cat'] = 'feline'
-a # => [{"cat"=>"feline"}, {"cat"=>"feline"}]
-
-a[1]['cat'] = 'Felix'
-a # => [{"cat"=>"Felix"}, {"cat"=>"Felix"}]
-```
-
-If multiple copies are what you want, you should use the block version which uses the result of that block each time an element of the array needs to be initialized:
-
-```ruby
-a = Array.new(2) {Hash.new}
-a[0]['cat'] = 'feline'
-a # => [{"cat"=>"feline"}, {}]
-```
-
-Another characteristic of Ruby arrays is that they mix in the [Enumerable][enumerable-module] module, which adds a lot of handy methods to iterate, search, sort, filter, etc. elements of an array.
-
-[enumerable-module]: https://ruby-doc.org/core-2.7.1/Enumerable.html
-[for-loop]: https://launchschool.com/books/ruby/read/loops_iterators#forloops
-
-
+---
+---
 # Introduction
 
 In Ruby, **arrays** are ordered, integer-indexed collections of any object. Array indexing starts at `0`. A negative index is assumed to be relative to the end of the array — i.e. an index of `-1` indicates the last element of the array, `-2` is the next to last element in the array, and so on.
@@ -2027,6 +1959,64 @@ arr     #=> [1, 2, 3, 4, 5]
 ```
 
 [enumerable-module]: https://ruby-doc.org/core-2.7.1/Enumerable.html
+
+
+# About
+
+Data structures that can hold zero or more elements are known as _collections_. An **array** in Ruby is a collection that maintains the ordering in which its objects are added. Arrays can hold any object. Objects can be added to an array or retrieved from it using an index. Ruby array indexing is zero-based, meaning that the first element's index is always zero:
+
+```ruby
+# Declare an array containing two values
+two_ints = [1,2]
+
+# Assign first and second element by index
+two_ints[0] = 7
+two_ints[1] = 8
+
+# Retrieve the second element by index
+two_ints[1] # => 8
+
+# Check the length of the array
+two_ints.size # => 2
+```
+
+In Ruby there are multiple ways of creating an Array:
+
+- Using the literal constructor `[]` _(most common)_
+- Explicitly calling `Array.new`
+- Calling the Kernel `Array()` method
+
+The `Array.new` method supports two optional arguments: the initial size of the array and a default object.
+
+When a size and default are provided, the array is populated with `size` copies of default object.
+
+```ruby
+a = Array.new(2, Hash.new)
+# => [{}, {}]
+```
+
+Since all the Array elements store the same hash, changes to one of them will affect them all.
+
+```ruby
+a[0]['cat'] = 'feline'
+a # => [{"cat"=>"feline"}, {"cat"=>"feline"}]
+
+a[1]['cat'] = 'Felix'
+a # => [{"cat"=>"Felix"}, {"cat"=>"Felix"}]
+```
+
+If multiple copies are what you want, you should use the block version which uses the result of that block each time an element of the array needs to be initialized:
+
+```ruby
+a = Array.new(2) {Hash.new}
+a[0]['cat'] = 'feline'
+a # => [{"cat"=>"feline"}, {}]
+```
+
+Another characteristic of Ruby arrays is that they mix in the [Enumerable][enumerable-module] module, which adds a lot of handy methods to iterate, search, sort, filter, etc. elements of an array.
+
+[enumerable-module]: https://ruby-doc.org/core-2.7.1/Enumerable.html
+[for-loop]: https://launchschool.com/books/ruby/read/loops_iterators#forloops
 
 
 # Introduction
@@ -2117,9 +2107,101 @@ fibonacci.map    { |number| number * 2  }   #=> [0, 2, 2, 4, 6, 10, 16, 26]
 
 ---
 
----
-
 # 13. RANGES
+---
+---
+# Ranges
+
+[Ranges][range] represent an interval between two values.
+The most common types that support ranges are `Integer` and `String`.
+They can be used for many things like quickly creating a collection, slicing strings, checking if a value is in a range, and iteration.
+They are created using the range operator `..` or `...` (inclusive and exclusive, respectively).
+
+```ruby
+1..5  # => 1..5
+1...5 # => 1...5
+
+(1..5).to_a # => [1, 2, 3, 4, 5]
+(1...5).to_a # => [1, 2, 3, 4]
+```
+
+The reason for having two range operators is to allow to create ranges that are inclusive or exclusive of the end value, which can be useful when for example working with indexes that are zero based.
+
+Ranges can also be created using the `Range` initializer.
+
+```ruby
+Range.new(1, 5) # A range containing 1, 2, 3, 4, 5
+```
+
+~~~~exercism/note
+When creating a range in Ruby using the range operators `..` or `...`, and wanting to call a method on the range, you need to wrap the range in parentheses.
+This is because the otherwise will the method be called on the 2nd argument of the range operator.
+
+```ruby
+(1..5).sum # => 15
+1..5.sum # => Error: undefined method `sum' for 5:Integer (NoMethodError)
+```
+~~~~
+
+## Getting substrings
+
+When wanting to slice a string, you can use the range operator to get a substring.
+That is, by creating a range with the start and end index of the sub-string.
+
+```ruby
+"Hello World"[0..4] # => "Hello"
+"Hello World"[6..10] # => "World"
+```
+
+You can also use negative indexes to get the substring from the end of the string.
+
+```ruby
+"Hello World"[-5..-1] # => "World"
+"Hello World"[6..-4] # => "Wo"
+```
+
+## Range methods
+
+Ranges do have a set of methods that can be used to work with them.
+For example, these methods can be used to get the sum of all the values in the range or check if the range includes a value.
+
+| Method                  | Description                                                             | Example                         |
+| ----------------------- | ----------------------------------------------------------------------- | ------------------------------- |
+| [`sum`][sum]            | Returns the sum of all the values in the range                          | `(1..5).sum # => 15`            |
+| [`size`][size]          | Returns the size of the range                                           | `(1..5).size # => 5`            |
+| [`include?`][indlude]   | Returns `true` if the range includes the given value, otherwise `false` | `(1..5).include?(3) # => true` |
+
+## Endless & Beginless ranges
+
+A range can be endless and beginless.
+The endless or beginless range has their start or end value being `nil`, but when defining the range the `nil` can be omitted.
+
+Using beginless and endless ranges is useful when you want to, for example, slice a string from the beginning or to the end.
+
+```ruby
+"Hello World"[0..] # => "Hello World"
+"Hello World"[4..] # => "o World"
+"Hello World"[..5] # => "Hello"
+```
+
+~~~~exercism/caution
+If not used on a collection, the endless range can cause an endless sequence, if not used with caution.
+~~~~
+
+## String ranges
+
+Strings can also be used in ranges and allow one to get an interval of strings between two strings.
+Its behavior can be a bit unexpected when using certain strings, so use it with caution.
+
+```ruby
+"aa".."az".to_a # => ["aa", "ab", "ac", ..., "az"]
+```
+
+[range]: https://rubyapi.org/o/range
+[sum]: https://rubyapi.org/o/enumerable#method-i-sum
+[size]: https://rubyapi.org/o/range#method-i-size
+[indlude]: https://rubyapi.org/o/range#method-i-include-3F
+
 
 # Ranges
 
@@ -2267,99 +2349,6 @@ They are created using the range operator `..` or `...` (inclusive and exclusive
 
 The reason for having two range operators is to allow to create ranges that are inclusive or exclusive of the end value, which can be useful when for example working with indexes that are zero based.
 
-Ranges can also be created using the `Range` initializer.
-
-```ruby
-Range.new(1, 5) # A range containing 1, 2, 3, 4, 5
-```
-
-~~~~exercism/note
-When creating a range in Ruby using the range operators `..` or `...`, and wanting to call a method on the range, you need to wrap the range in parentheses.
-This is because the otherwise will the method be called on the 2nd argument of the range operator.
-
-```ruby
-(1..5).sum # => 15
-1..5.sum # => Error: undefined method `sum' for 5:Integer (NoMethodError)
-```
-~~~~
-
-## Getting substrings
-
-When wanting to slice a string, you can use the range operator to get a substring.
-That is, by creating a range with the start and end index of the sub-string.
-
-```ruby
-"Hello World"[0..4] # => "Hello"
-"Hello World"[6..10] # => "World"
-```
-
-You can also use negative indexes to get the substring from the end of the string.
-
-```ruby
-"Hello World"[-5..-1] # => "World"
-"Hello World"[6..-4] # => "Wo"
-```
-
-## Range methods
-
-Ranges do have a set of methods that can be used to work with them.
-For example, these methods can be used to get the sum of all the values in the range or check if the range includes a value.
-
-| Method                  | Description                                                             | Example                         |
-| ----------------------- | ----------------------------------------------------------------------- | ------------------------------- |
-| [`sum`][sum]            | Returns the sum of all the values in the range                          | `(1..5).sum # => 15`            |
-| [`size`][size]          | Returns the size of the range                                           | `(1..5).size # => 5`            |
-| [`include?`][indlude]   | Returns `true` if the range includes the given value, otherwise `false` | `(1..5).include?(3) # => true` |
-
-## Endless & Beginless ranges
-
-A range can be endless and beginless.
-The endless or beginless range has their start or end value being `nil`, but when defining the range the `nil` can be omitted.
-
-Using beginless and endless ranges is useful when you want to, for example, slice a string from the beginning or to the end.
-
-```ruby
-"Hello World"[0..] # => "Hello World"
-"Hello World"[4..] # => "o World"
-"Hello World"[..5] # => "Hello"
-```
-
-~~~~exercism/caution
-If not used on a collection, the endless range can cause an endless sequence, if not used with caution.
-~~~~
-
-## String ranges
-
-Strings can also be used in ranges and allow one to get an interval of strings between two strings.
-Its behavior can be a bit unexpected when using certain strings, so use it with caution.
-
-```ruby
-"aa".."az".to_a # => ["aa", "ab", "ac", ..., "az"]
-```
-
-[range]: https://rubyapi.org/o/range
-[sum]: https://rubyapi.org/o/enumerable#method-i-sum
-[size]: https://rubyapi.org/o/range#method-i-size
-[indlude]: https://rubyapi.org/o/range#method-i-include-3F
-
-
-# Ranges
-
-[Ranges][range] represent an interval between two values.
-The most common types that support ranges are `Integer` and `String`.
-They can be used for many things like quickly creating a collection, slicing strings, checking if a value is in a range, and iteration.
-They are created using the range operator `..` or `...` (inclusive and exclusive, respectively).
-
-```ruby
-1..5  # => 1..5
-1...5 # => 1...5
-
-(1..5).to_a # => [1, 2, 3, 4, 5]
-(1...5).to_a # => [1, 2, 3, 4]
-```
-
-The reason for having two range operators is to allow to create ranges that are inclusive or exclusive of the end value, which can be useful when for example working with indexes that are zero based.
-
 Ranges can also be created using the `Range` constructor, `new`.
 
 ```ruby
@@ -2438,9 +2427,65 @@ Its behavior can be a bit unexpected when using certain strings, so use it with 
 
 ---
 
----
-
 # 14. SYMBOLS
+---
+---
+# About
+
+[Symbols][symbols] are named identifiers that can be used to refer to a value.
+Symbols are created through a symbol literal, which is by prefixing a name with a `:` character, e.g. `:foo`.
+They also allow for being written with quotes, e.g. `:"foo"`, which allows, for example, spaces in the name.
+
+```ruby
+:foo # => :foo
+:"foo boo" # => :"foo boo"
+```
+
+Symbols are used in many places in the language, including as keys in hashes, to represent method names and variable names.
+
+## Identifier
+
+What makes symbols different from strings is that they are identifiers, and do not represent data or text.
+This means that two symbols with the same name are always the same object.
+
+```ruby
+"foo".object_id # => 60
+"foo".object_id # => 80
+:foo.object_id # => 1086748
+:foo.object_id # => 1086748
+```
+
+## Modifying Symbols
+
+Symbols are immutable, which means that they cannot be modified.
+This means that when you "modify" a symbol, you are actually creating a new symbol.
+There are a few methods that can be used to manipulate symbols, they all return new symbols.
+All methods can be found in the [Symbol API][symbols-api].
+
+```ruby
+:foo.upcase # => :FOO
+
+:foo.object_id # => 1086748
+:foo.upcase.object_id # => 60
+```
+
+The benefit of symbols being immutable is that they are more memory efficient than strings, but also safer to use as identifiers.
+
+## Conversion
+
+Symbols can be converted to strings and vice versa.
+This can be useful when you want to modify a symbol, or when you want to use a symbol as a string.
+To present a string as a symbol, you can use the `String#to_sym` method, and to do the opposite, you can use the `Symbol#to_s` method.
+Due to symbols having a limited set of methods, it can be useful to convert a symbol to a string to use string methods on it, if a new symbol is needed.
+
+```ruby
+:foo.to_s # => "foo"
+"foo".to_sym # => :foo
+```
+
+[symbols]: https://www.rubyguides.com/2018/02/ruby-symbols/
+[symbols-api]: https://rubyapi.org/o/symbol
+
 
 # About
 
@@ -2581,68 +2626,37 @@ Due to symbols having a limited set of methods, it can be useful to convert a sy
 [symbols-api]: https://rubyapi.org/o/symbol
 
 
-# About
-
-[Symbols][symbols] are named identifiers that can be used to refer to a value.
-Symbols are created through a symbol literal, which is by prefixing a name with a `:` character, e.g. `:foo`.
-They also allow for being written with quotes, e.g. `:"foo"`, which allows, for example, spaces in the name.
-
-```ruby
-:foo # => :foo
-:"foo boo" # => :"foo boo"
-```
-
-Symbols are used in many places in the language, including as keys in hashes, to represent method names and variable names.
-
-## Identifier
-
-What makes symbols different from strings is that they are identifiers, and do not represent data or text.
-This means that two symbols with the same name are always the same object.
-
-```ruby
-"foo".object_id # => 60
-"foo".object_id # => 80
-:foo.object_id # => 1086748
-:foo.object_id # => 1086748
-```
-
-## Modifying Symbols
-
-Symbols are immutable, which means that they cannot be modified.
-This means that when you "modify" a symbol, you are actually creating a new symbol.
-There are a few methods that can be used to manipulate symbols, they all return new symbols.
-All methods can be found in the [Symbol API][symbols-api].
-
-```ruby
-:foo.upcase # => :FOO
-
-:foo.object_id # => 1086748
-:foo.upcase.object_id # => 60
-```
-
-The benefit of symbols being immutable is that they are more memory efficient than strings, but also safer to use as identifiers.
-
-## Conversion
-
-Symbols can be converted to strings and vice versa.
-This can be useful when you want to modify a symbol, or when you want to use a symbol as a string.
-To present a string as a symbol, you can use the `String#to_sym` method, and to do the opposite, you can use the `Symbol#to_s` method.
-Due to symbols having a limited set of methods, it can be useful to convert a symbol to a string to use string methods on it, if a new symbol is needed.
-
-```ruby
-:foo.to_s # => "foo"
-"foo".to_sym # => :foo
-```
-
-[symbols]: https://www.rubyguides.com/2018/02/ruby-symbols/
-[symbols-api]: https://rubyapi.org/o/symbol
-
-
----
-
 ---
 
 # 15. ENUMERATION
+---
+---
+# Introduction
+
+Enumeration is the act of stepping through a collection (`Array`, `Hash`, etc) and performing some action on each object.
+
+Enumeration is a key concept in Ruby and is used for sorting (`sort_by`), grouping (`group_by`), mapping (`map`), reducing (`reduce`), and much more. 
+You'll most frequently see enumeration as the idiomatic way iterating through collections rather than using loops.
+
+A simple enumeration making use of `map` and `with_index` looks like this:
+
+```ruby
+words = %w[the cat sat on the mat]
+list = words.map.with_index do |word, index| 
+  "#{index} #{word}"
+end
+
+puts list
+
+# Output:
+# 0. the
+# 1. cat
+# 2. sat
+# 3. on
+# 4. the
+# 5. mat
+```
+
 
 # About
 
@@ -2696,33 +2710,6 @@ words.each.with_index { |(animal, name), index| ... }
 ```
 
 The methods described above are part of the [`Enumerable` module](https://ruby-doc.org/core-2.7.1/Enumerable.html) which is included in `Array`, `Hash` and other classes that require the ability to enumerate.
-
-
-# Introduction
-
-Enumeration is the act of stepping through a collection (`Array`, `Hash`, etc) and performing some action on each object.
-
-Enumeration is a key concept in Ruby and is used for sorting (`sort_by`), grouping (`group_by`), mapping (`map`), reducing (`reduce`), and much more. 
-You'll most frequently see enumeration as the idiomatic way iterating through collections rather than using loops.
-
-A simple enumeration making use of `map` and `with_index` looks like this:
-
-```ruby
-words = %w[the cat sat on the mat]
-list = words.map.with_index do |word, index| 
-  "#{index} #{word}"
-end
-
-puts list
-
-# Output:
-# 0. the
-# 1. cat
-# 2. sat
-# 3. on
-# 4. the
-# 5. mat
-```
 
 
 # Introduction
@@ -2791,9 +2778,72 @@ pets.map { |pet|
 
 ---
 
----
-
 # 16. ADVANCED-ENUMERATION
+---
+---
+# Introduction
+
+## More enumeration methods
+
+In Enumeration, you were introduced to the `count`, `any?`, `select`, `all` and `map` enumeration methods.
+Here's a recap of those, with a few extras added:
+
+```ruby
+fibonacci = [0, 1, 1, 2, 3, 5, 8, 13]
+
+fibonacci.count  { |number| number == 1 }   #=> 2
+fibonacci.any?   { |number| number > 20 }   #=> false
+fibonacci.none?  { |number| number > 20 }   #=> true
+fibonacci.select { |number| number.odd? }   #=> [1, 1, 3, 5, 13]
+fibonacci.all?   { |number| number < 20 }   #=> true
+fibonacci.map    { |number| number * 2  }   #=> [0, 2, 2, 4, 6, 10, 16, 26]
+fibonacci.select { |number| number >= 5}    #=> [5, 8, 13]
+fibonacci.find   { |number| number >= 5}    #=> 5
+
+# Some methods work with or without a block
+fibonacci.sum  #=> 33
+fibonacci.sum {| number | number * number }  #=> 273
+
+# There are also methods to help with nested arrays:
+animals = [ ['cat', 'bob'], ['horse', 'caris'], ['mouse', 'arya'] ]
+animals.flatten  #=> ["cat", "bob", "horse", "caris", "mouse", "arya"]
+```
+
+## Enumerating Hashes
+
+Enumerating `Hash` objects is exactly the same as enumerating `Array` objects, except that the block receives two arguments: the key and the value:
+
+```ruby
+pet_names = {cat: "bob", horse: "caris", mouse: "arya"}
+pet_names.each { |animal, name| ... }
+```
+
+If you only need one of the values, you can use the special `_` symbol to indicate that one value is not needed.
+This helps both in terms of developer clarity and also is a performance optimisation.
+
+```ruby
+pet_names = {cat: "bob", horse: "caris", mouse: "arya"}
+pet_names.map { |_, name| name }  #=> ["bob, "caris", "arya"]
+```
+
+## Nested Enumerations
+
+You can also enumerate in nested blocks, and daisy chain methods together.
+For example, if we have an array of hashes of animals, and we want extract the animals with short names, we might want to do something like:
+
+```ruby
+pets = [
+  { animal: "cats", names: ["bob", "fred", "sandra"] },
+  { animal: "horses", names: ["caris", "black beard", "speedy"] },
+  { animal: "mice", names: ["arya", "jerry"] }
+]
+
+pets.map { |pet|
+  pet[:names].select { |name| name.length <= 5 }
+}.flatten.sort
+#=> ["arya", "bob", "caris", "fred", "jerry"]
+```
+
 
 # About
 
@@ -2859,75 +2909,18 @@ pets.map { |pet|
 ```
 
 
-# Introduction
-
-## More enumeration methods
-
-In Enumeration, you were introduced to the `count`, `any?`, `select`, `all` and `map` enumeration methods.
-Here's a recap of those, with a few extras added:
-
-```ruby
-fibonacci = [0, 1, 1, 2, 3, 5, 8, 13]
-
-fibonacci.count  { |number| number == 1 }   #=> 2
-fibonacci.any?   { |number| number > 20 }   #=> false
-fibonacci.none?  { |number| number > 20 }   #=> true
-fibonacci.select { |number| number.odd? }   #=> [1, 1, 3, 5, 13]
-fibonacci.all?   { |number| number < 20 }   #=> true
-fibonacci.map    { |number| number * 2  }   #=> [0, 2, 2, 4, 6, 10, 16, 26]
-fibonacci.select { |number| number >= 5}    #=> [5, 8, 13]
-fibonacci.find   { |number| number >= 5}    #=> 5
-
-# Some methods work with or without a block
-fibonacci.sum  #=> 33
-fibonacci.sum {| number | number * number }  #=> 273
-
-# There are also methods to help with nested arrays:
-animals = [ ['cat', 'bob'], ['horse', 'caris'], ['mouse', 'arya'] ]
-animals.flatten  #=> ["cat", "bob", "horse", "caris", "mouse", "arya"]
-```
-
-## Enumerating Hashes
-
-Enumerating `Hash` objects is exactly the same as enumerating `Array` objects, except that the block receives two arguments: the key and the value:
-
-```ruby
-pet_names = {cat: "bob", horse: "caris", mouse: "arya"}
-pet_names.each { |animal, name| ... }
-```
-
-If you only need one of the values, you can use the special `_` symbol to indicate that one value is not needed.
-This helps both in terms of developer clarity and also is a performance optimisation.
-
-```ruby
-pet_names = {cat: "bob", horse: "caris", mouse: "arya"}
-pet_names.map { |_, name| name }  #=> ["bob, "caris", "arya"]
-```
-
-## Nested Enumerations
-
-You can also enumerate in nested blocks, and daisy chain methods together.
-For example, if we have an array of hashes of animals, and we want extract the animals with short names, we might want to do something like:
-
-```ruby
-pets = [
-  { animal: "cats", names: ["bob", "fred", "sandra"] },
-  { animal: "horses", names: ["caris", "black beard", "speedy"] },
-  { animal: "mice", names: ["arya", "jerry"] }
-]
-
-pets.map { |pet|
-  pet[:names].select { |name| name.length <= 5 }
-}.flatten.sort
-#=> ["arya", "bob", "caris", "fred", "jerry"]
-```
-
-
----
-
 ---
 
 # 17. BLOCKS
+---
+---
+# Introduction
+
+Blocks are small groupings of statements that can be executed multiple times. 
+They can be thought of as closures or anonymous functions. 
+Blocks are defined using the `do...end` syntax (above), or the `{}` (below). 
+The styles are interchangeable and differing opinions exist about when each should be used.
+
 
 # About
 
@@ -2945,19 +2938,37 @@ people.sum(&:age)
 ```
 
 
-# Introduction
-
-Blocks are small groupings of statements that can be executed multiple times. 
-They can be thought of as closures or anonymous functions. 
-Blocks are defined using the `do...end` syntax (above), or the `{}` (below). 
-The styles are interchangeable and differing opinions exist about when each should be used.
-
-
----
-
 ---
 
 # 18. MULTIPLE-ASSIGNMENT-AND-DECOMPOSITION
+---
+---
+# Decomposition and Multiple Assignment
+
+Decomposition refers to the act of extracting the elements of a collection, such as an `Array` or `Hash`.
+Decomposed values can then be assigned to variables within the same statement.
+
+[Multiple assignment][multiple assignment] is the ability to assign multiple variables to decompose values within one statement.
+This allows for code to be more concise and readable, and is done by separating the variables to be assigned with a comma such as `first, second, third = [1, 2, 3]`.
+
+The splat operator(`*`), and double splat operator, (`**`), are often used in decomposition contexts.
+Splat operator, (`*`), can be used to combine multiple **arrays** into one **array** by _decomposing_ each into a new common **array**.
+Double splat operator, (`**`), can be used to combine multiple **hashes** into one **hash** by _decomposing_ each into a new common **hash**.
+This is syntax used to differentiate from multiple values accepted as a positional argument, to one where we accept any/many key word arguments.
+
+When the splat operator, (`*`), is used without a collection, it _packs_ (or composes) a number of values into an **array**.
+This is often used in multiple assignment to group all "remaining" elements that do not have individual assignments into a single variable.
+
+It is common in Ruby to use this decomposing/composing behavior when using or defining methods that take an arbitrary number of positional or keyword arguments.
+You will often see these arguments defined as `def some_method(*args, **kwargs)` and the arguments used as `some_method(*some_array, **some_hash)`.
+
+~~~~exercism/caution
+`*<variable_name>` and `**<variable_name>` should not be confused with `*` and `**`.
+While `*` and `**` are used for multiplication and exponentiation, respectively, `*<variable_name>` and `**<variable_name>` are used as composition and decomposition operators.
+~~~~
+
+[multiple assignment]: https://docs.ruby-lang.org/en/3.1/syntax/assignment_rdoc.html#label-Multiple+Assignment
+
 
 # Decomposition and Multiple Assignment
 
@@ -3409,33 +3420,6 @@ Decomposed values can then be assigned to variables within the same statement.
 This allows for code to be more concise and readable, and is done by separating the variables to be assigned with a comma such as `first, second, third = [1, 2, 3]`.
 
 The splat operator(`*`), and double splat operator, (`**`), are often used in decomposition contexts.
-Splat operator, (`*`), can be used to combine multiple **arrays** into one **array** by _decomposing_ each into a new common **array**.
-Double splat operator, (`**`), can be used to combine multiple **hashes** into one **hash** by _decomposing_ each into a new common **hash**.
-This is syntax used to differentiate from multiple values accepted as a positional argument, to one where we accept any/many key word arguments.
-
-When the splat operator, (`*`), is used without a collection, it _packs_ (or composes) a number of values into an **array**.
-This is often used in multiple assignment to group all "remaining" elements that do not have individual assignments into a single variable.
-
-It is common in Ruby to use this decomposing/composing behavior when using or defining methods that take an arbitrary number of positional or keyword arguments.
-You will often see these arguments defined as `def some_method(*args, **kwargs)` and the arguments used as `some_method(*some_array, **some_hash)`.
-
-~~~~exercism/caution
-`*<variable_name>` and `**<variable_name>` should not be confused with `*` and `**`.
-While `*` and `**` are used for multiplication and exponentiation, respectively, `*<variable_name>` and `**<variable_name>` are used as composition and decomposition operators.
-~~~~
-
-[multiple assignment]: https://docs.ruby-lang.org/en/3.1/syntax/assignment_rdoc.html#label-Multiple+Assignment
-
-
-# Decomposition and Multiple Assignment
-
-Decomposition refers to the act of extracting the elements of a collection, such as an `Array` or `Hash`.
-Decomposed values can then be assigned to variables within the same statement.
-
-[Multiple assignment][multiple assignment] is the ability to assign multiple variables to decompose values within one statement.
-This allows for code to be more concise and readable, and is done by separating the variables to be assigned with a comma such as `first, second, third = [1, 2, 3]`.
-
-The splat operator(`*`), and double splat operator, (`**`), are often used in decomposition contexts.
 
 ~~~~exercism/caution
 `*<variable_name>` and `**<variable_name>` should not be confused with `*` and `**`.
@@ -3852,9 +3836,38 @@ my_method(**numbers)
 
 ---
 
----
-
 # 19. EXCEPTIONS
+---
+---
+# Introduction
+
+Exceptions are a form of error handling.
+They are called exceptions, as they normally appear when dealing with some unexpected event.
+
+At any point in our code, we can "raise" an exception. 
+We do this using the `raise` method, passing in an object - normally an Exception object, although we can also use basic strings.
+For example, you'll see in the exercise stubs that we use the built-in `RuntimeError` to tell Ruby that a method hasn't been implemented.
+You can also use the shorthand syntax of `raise(ExceptionObject, params)`.
+If the exception class is omitted, `RuntimeError` is used by default.
+For example:
+
+```ruby
+# These are equivalent
+raise RuntimeError.new("Please implement this method")
+raise RuntimeError, "Please implement this method"
+raise "Please implement this method"
+```
+
+When Ruby sees this it bubbles the error to the top of the program and then exits.
+For example, if you try dividing something by zero, you will see something like this:
+```ruby
+5/0
+
+#=> Traceback (most recent call last):
+#=> ...
+#=> ZeroDivisionError (divided by 0)
+```
+
 
 # About
 
@@ -3961,36 +3974,6 @@ end
 
 # Introduction
 
-Exceptions are a form of error handling.
-They are called exceptions, as they normally appear when dealing with some unexpected event.
-
-At any point in our code, we can "raise" an exception. 
-We do this using the `raise` method, passing in an object - normally an Exception object, although we can also use basic strings.
-For example, you'll see in the exercise stubs that we use the built-in `RuntimeError` to tell Ruby that a method hasn't been implemented.
-You can also use the shorthand syntax of `raise(ExceptionObject, params)`.
-If the exception class is omitted, `RuntimeError` is used by default.
-For example:
-
-```ruby
-# These are equivalent
-raise RuntimeError.new("Please implement this method")
-raise RuntimeError, "Please implement this method"
-raise "Please implement this method"
-```
-
-When Ruby sees this it bubbles the error to the top of the program and then exits.
-For example, if you try dividing something by zero, you will see something like this:
-```ruby
-5/0
-
-#=> Traceback (most recent call last):
-#=> ...
-#=> ZeroDivisionError (divided by 0)
-```
-
-
-# Introduction
-
 Exceptions in Ruby, as in many languages, provide a way of dealing with unexpected events. Proper handling of exceptions is important when trying to prevent your program from crashing.
 
 When an exception is raised, either by raising it explicitly or by the Ruby interpreter raising it, the program diverts normal operation and eventually exits with an error message:
@@ -4056,29 +4039,9 @@ raise CustomError.new("Something went wrong")
 
 ---
 
----
-
 # 20. MODULES
-
-# About
-
-Some times you don't need the overhead of creating an object with state.
-In these cases, a `module` can be used.
-
-A module is very similar to a class (in fact, `Module` is `Classes` parent in the object hierarchy) - the main difference being that rather than using instance methods, we use class methods.
-Class methods start with `self.` and are directly called on a module. 
-For example:
-
-```ruby
-module Speaker
-  def self.echo(something)
-    "#{something} ... #{something}"
-  end
-end
-
-Speaker.echo("Hello")   #=> "Hello ... Hello"
-```
-
+---
+---
 # Introduction
 
 Some times you don't need the overhead of creating an object with state.
@@ -4098,6 +4061,25 @@ end
 Speaker.echo("Hello")   #=> "Hello ... Hello"
 ```
 
+
+# About
+
+Some times you don't need the overhead of creating an object with state.
+In these cases, a `module` can be used.
+
+A module is very similar to a class (in fact, `Module` is `Classes` parent in the object hierarchy) - the main difference being that rather than using instance methods, we use class methods.
+Class methods start with `self.` and are directly called on a module. 
+For example:
+
+```ruby
+module Speaker
+  def self.echo(something)
+    "#{something} ... #{something}"
+  end
+end
+
+Speaker.echo("Hello")   #=> "Hello ... Hello"
+```
 
 # Introduction
 
@@ -4146,11 +4128,10 @@ end
 
 ---
 
----
-
 # 21. OSTRUCT
-
-# About
+---
+---
+# Introduction
 
 Ruby comes with a Standard Library (often shortened to "stdlib") - a collection of classes for working with things such as dates, json, and networking.
 It also provides some useful functionality for making your code easier to work with.
@@ -4188,7 +4169,7 @@ people.sum(&:age)
 
 
 
-# Introduction
+# About
 
 Ruby comes with a Standard Library (often shortened to "stdlib") - a collection of classes for working with things such as dates, json, and networking.
 It also provides some useful functionality for making your code easier to work with.
@@ -4278,8 +4259,6 @@ person = OpenStruct.new(name: "Jeremy Walker")
 
 
 
-
----
 
 ---
 
